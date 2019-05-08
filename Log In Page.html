@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head id = "base">
+  <base target="_top">
+          <title>Hemlock Wilderness Brigade Camp</title>
+
+    </head>
+  <body>
+  <div id='default'>
+            <h1>HEMLOCK WILDERNESS BRIGADE CAMP</h1>
+        
+            <p> <b>Welcome to Hemlock Wilderness Brigade Camp's Role Preference Selection Program!</b>
+            Please enter your username and password below. </p><br>
+
+  <label>Username:</label><input type = "text" id = "Username"><br>
+    <label>Password:</label><input type = "password" id = "password"><br>
+    <button id="LogIn">Log in</button><br>
+    <p id="validity"></p>
+    <p>
+                <br><br>If you have never logged in before, your username is first name and last initial. Your password is HWBC (Hemlock Wilderness Brigade Camp), last name, and first initial.</p>
+            <p>Example:
+                <br>Name: Mark Curran
+                <br>Username: MarkC
+                <br>Password: HWBCCurranM
+                <br>
+            </p>
+            <p>You can change your password after logging in the first time.</p>
+        </div>
+        <div id='logo'>
+             &nbsp;Brought to you by &nbsp;
+             <img src="https://drive.google.com/uc?export=download&id=1MGfFrL3CpH6_VVYfz27UTdvqk_fkDiKI" alt="Gravity Enterprise" height="30">
+             &nbsp;
+    </div>
+    </body>
+  <script>
+    document.getElementById("LogIn").addEventListener("click",Acheck);
+    function changePage(p){
+      document.open();
+      document.write(p);
+      document.close();
+    }
+    function check(c){
+      if(c===1){
+        google.script.run.withSuccessHandler(changePage).newPage('Logged In');
+      }else{
+         document.getElementById("validity").innerHTML = "Try again";
+      }
+    }
+    function Acheck(){
+      google.script.run.withSuccessHandler(check)
+        .checkauth(document.getElementById("Username").value,document.getElementById("password").value);
+    }
+    </script>
+    <style>
+    body {
+    background-color: #562020;
+}
+div#default {
+    background-color: white;
+    width: 750px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+div#logo {
+    text-align: center;
+    text-size: 25px;
+    color: #FF6354;
+    font-family: 'Montserrat',sans-serif;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px 0;
+}
+img {
+    vertical-align: middle;
+}
+h1 {
+    font-family: 'Montserrat',sans-serif;
+    font-size: 18px;
+    color: #562020;
+    letter-spacing: 0.25em;
+    font-weight: bold;
+}
+p {
+    font-family: 'Montserrat',sans-serif;
+    font-size: 14px;
+    color: #763838;
+}
+label{
+    font-family: 'Montserrat',sans-serif;
+    color: #562020;
+}
+input[type=text], input[type=password]{
+    width: 97%;
+    font-family: 'Source Code Pro', monospace;
+    color: #3c0c0c;
+    border: 1.5px solid #562020;
+    padding: 5px;
+    border-radius: 6px;
+}
+button {
+    background-color: white;
+    border: 2px solid #562020;
+    border-radius: 10px;
+    color: #562020;
+    padding: 10px 12px;
+    font-family: 'Montserrat',sans-serif;
+    margin: 4px 2px;
+    transition: 0.3s;
+}
+button:hover{
+    border: 2px solid #562020;
+    color: white;
+    background-color: #562020;
+}
+  </style>
+</html>
+
+ 
